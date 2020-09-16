@@ -42,5 +42,5 @@ int command(char *buffer, stack_t **stack, unsigned int line)
 		get_op(token_array[0], stack, line);
 	}
 	free(token_array);
-	return (EXIT_SUCCESS);
+	return (EXIT_FAILURE);
 }
