@@ -1,16 +1,18 @@
 #include "monty.h"
 /**
- * main - Main function 
+ * main - Main function
  * @argc: Number of arguments
  * @argv: Array of arguments of main.
  *
  * Return: 0 if succes
  */
-int main(int argc, char *argv[]) 
+int main(int argc, char *argv[])
 {
 	FILE *fd;
 	char *buffer = NULL;
 	size_t size;
+	stack_t *stack = NULL;
+	unsigned int line = 1;
 
 	if (argc != 2)
 	{
@@ -19,7 +21,7 @@ int main(int argc, char *argv[])
 	}
 	/*First: open the file*/
 	fd = fopen(argv[1], "r");
-	if(fd == NULL)
+	if (fd == NULL)
 	{
 		dprintf(2, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
@@ -27,9 +29,11 @@ int main(int argc, char *argv[])
 	/*Sec: we read the file*/
 	while (getline(&buffer, &size, fd) != -1)
 	{
-		command(buffer);
+		command(buffer, &stack, line);
+		line++;
 	}
 	fclose(fd);
+/*	free_stack(stack);*/
 	free(buffer);
-	return 0;
+	return (0);
 }
