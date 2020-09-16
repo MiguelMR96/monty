@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	FILE *fd;
 	char *buffer = NULL;
-	size_t size;
+	size_t size = 0;
 	stack_t *stack = NULL;
 	unsigned int line = 1;
 
@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 	if (fd == NULL)
 	{
 		dprintf(2, "Error: Can't open file %s\n", argv[1]);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	/*Sec: we read the file*/
@@ -33,7 +34,7 @@ int main(int argc, char *argv[])
 		line++;
 	}
 	fclose(fd);
-/*	free_stack(stack);*/
-	free(buffer);
+	free_stack(stack);
+
 	return (0);
 }

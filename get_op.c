@@ -24,5 +24,6 @@ int get_op(char *op_code, stack_t **stack, unsigned int line)
 		i++;
 	}
 	dprintf(2, "L%d: unknown instruction %s\n", line, op_code);
-	return (EXIT_FAILURE);
+	free_stack(*stack);
+	exit(EXIT_FAILURE);
 }
