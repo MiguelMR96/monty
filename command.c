@@ -35,8 +35,8 @@ int command(char *buffer, stack_t **stack, unsigned int line)
 	token_array[i] = NULL;
 	if (strcmp(token_array[0], "push") == 0)
 	{
-		if (token_array[1] < 0 || token_array[1] > 9)
-			exit(EXIT_FAILURE);
+		/*if (token_array[1] < 0 || token_array[1] > 9)
+			exit(EXIT_FAILURE);*/
 		n = atoi(token_array[1]);
 		aux = op_push(stack, n, line);
 	}
