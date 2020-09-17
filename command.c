@@ -17,6 +17,8 @@ int command(char *buffer, stack_t **stack, unsigned int line)
 	token = strtok(buffer, del);
 	if (token == NULL)
 		return (EXIT_SUCCESS);
+	if (buffer[0] == '#')
+		return (EXIT_SUCCESS);
 	while (i < 2)
 	{
 		token_array[i] = token;
