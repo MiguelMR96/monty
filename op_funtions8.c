@@ -20,7 +20,7 @@ void op_mul(stack_t **stack, unsigned int line)
 
 	if (num_nodes < 2)
 	{
-		printf("L%d: can't mul, stack too short\n", line);
+		dprintf(2, "L%d: can't mul, stack too short\n", line);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
