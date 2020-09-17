@@ -7,7 +7,8 @@
  * Return: 0 if succes
  */
 int main(int argc, char *argv[])
-{	size_t size = 0;
+{
+	size_t size = 0;
 	stack_t *stack = NULL;
 	unsigned int line = 1;
 
