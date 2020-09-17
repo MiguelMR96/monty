@@ -7,16 +7,9 @@
  */
 void op_swap(stack_t **stack, unsigned int line)
 {
-	stack_t *aux, *tmp = *stack;
-	int counter = 1;
+	stack_t *aux;
 
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-		counter++;
-	}
-
-	if (counter < 2)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		dprintf(2, "L%d: can't swap, stack too short\n", line);
 		free_stack(*stack);
