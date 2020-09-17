@@ -24,6 +24,12 @@ void op_mod(stack_t **stack, unsigned int line)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
+	if((*stack)->n == 0)
+	{
+		dprintf(2, "L%d: division by zero\n", line);
+		free_stack(*stack);
+		exit(EXIT_FAILURE);
+	}
 
 	mod = (*stack)->next->n % (*stack)->n;/*sumo stack y stakk next data*/
 	(*stack) = (*stack)->next;/*stack ya será stack next para poder liberarlo*/
