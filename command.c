@@ -18,7 +18,7 @@ int command(char *buffer, stack_t **stack, unsigned int line)
 	if (token == NULL)
 		return (EXIT_SUCCESS);
 
-	if (token[0] != '\0' && token[0] == '#')
+	if (token[0] == '#')
 		return (EXIT_SUCCESS);
 	while (i < 2)
 	{
