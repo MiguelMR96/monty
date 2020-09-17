@@ -2,7 +2,7 @@
 /**
  * op_push - push function
  * @stack: pointer to doubly linked list
- * @n: node's value (stack->n)
+ * @token: node's value (stack->n)
  * @line: number of line
  * Return: int
  */
