@@ -12,6 +12,9 @@ void op_pop(stack_t **stack, unsigned int line)
 	if (stack == NULL || *stack == NULL)
 	{
 		dprintf(2, "L%d: can't pop an empty stack\n", line);
+		free_stack(*stack);
+		fclose(glob.fd);
+		free(glob.buffer);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;

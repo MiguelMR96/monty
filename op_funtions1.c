@@ -12,6 +12,8 @@ void op_pint(stack_t **stack, unsigned int line)
 	{
 		dprintf(2, "L%d: can't pint, stack empty\n", line);
 		free_stack(*stack);
+		fclose(glob.fd);
+		free(glob.buffer);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);

@@ -22,6 +22,8 @@ void op_div(stack_t **stack, unsigned int line)
 	{
 		dprintf(2,"L%d: can't div, stack too short\n", line);
 		free_stack(*stack);
+		fclose(glob.fd);
+		free(glob.buffer);
 		exit(EXIT_FAILURE);
 	}
 

@@ -19,7 +19,10 @@ stack_t *op_push(stack_t **stack, char *token, unsigned int line)
 	{
 		if (token[i] < '0' || token[i] > '9')
 		{
-			printf("L%d: usage: push integer\n", line);
+			dprintf(2, "L%d: usage: push integer\n", line);
+			fclose(glob.fd);
+			free_stack(*stack);
+			free(glob.buffer);
 			exit(EXIT_FAILURE);
 		}
 		i++;
@@ -30,6 +33,7 @@ stack_t *op_push(stack_t **stack, char *token, unsigned int line)
 	{
 		dprintf(2, "Error: malloc failed\n");
 		free_stack(*stack);
+		fclose(glob.fd);
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = n;
