@@ -10,6 +10,16 @@ int get_op(char *op_code, stack_t **stack, unsigned int line)
 {
 	instruction_t op_functions[] = {
 		{"pall", op_pall},
+		{"pint", op_pint},
+		{"pop", op_pop},
+		/*{"swap", op_swap},*/
+		{"add", op_add},
+		{"nop", op_nop},
+		{"sub", op_sub},
+		{"div", op_div},
+		{"mul", op_mul},
+		{"mod", op_mod},
+		{"rotl", op_rotl},
 		{NULL, NULL}
 	};
 	int i = 0;
