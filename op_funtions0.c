@@ -1,5 +1,19 @@
 #include "monty.h"
 /**
+ * exit_push - exit with free memory leaks
+ * @stack: pointer to stack
+ * @line: LINE_NUMBER!!!!!!
+ * Return: void!
+ */
+void exit_push(stack_t **stack, unsigned int line)
+{
+	dprintf(2, "L%d: usage: push integer\n", line);
+	fclose(glob.fd);
+	free_stack(*stack);
+	free(glob.buffer);
+	exit(EXIT_FAILURE);
+}
+/**
  * op_push - push function
  * @stack: pointer to doubly linked list
  * @token: node's value (stack->n)
@@ -14,17 +28,16 @@ stack_t *op_push(stack_t **stack, char *token, unsigned int line)
 
 	i = 0;
 	if (token[0] == '-')
+	{
+		if (token[1] == '\0')
+			exit_push(stack, line);
 		i = 1;
+	}
+
 	while (token[i])
 	{
 		if (token[i] < '0' || token[i] > '9')
-		{
-			dprintf(2, "L%d: usage: push integer\n", line);
-			fclose(glob.fd);
-			free_stack(*stack);
-			free(glob.buffer);
-			exit(EXIT_FAILURE);
-		}
+			exit_push(stack, line);
 		i++;
 	}
 	n = atoi(token);
@@ -33,6 +46,7 @@ stack_t *op_push(stack_t **stack, char *token, unsigned int line)
 	{
 		dprintf(2, "Error: malloc failed\n");
 		free_stack(*stack);
+		free(glob.buffer);
 		fclose(glob.fd);
 		exit(EXIT_FAILURE);
 	}

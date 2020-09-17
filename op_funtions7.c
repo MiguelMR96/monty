@@ -27,6 +27,15 @@ void op_div(stack_t **stack, unsigned int line)
 		exit(EXIT_FAILURE);
 	}
 
+	if ((*stack)->n == 0)
+	{
+		dprintf(2, "L%d: division by zero\n", line);
+		free_stack(*stack);
+		fclose(glob.fd);
+		free(glob.buffer);
+		exit(EXIT_FAILURE);
+	}
+
 	div = (*stack)->next->n / (*stack)->n;/*sumo stack y stakk next data*/
 	(*stack) = (*stack)->next;/*stack ya será stack next para poder liberarlo*/
 	free((*stack)->prev);/*libero stack*/
