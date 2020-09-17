@@ -15,5 +15,3 @@ void free_stack(stack_t *stack)
 		stack = aux;
 	}
 }
-/**
- * free_token - 
