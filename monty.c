@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
 {
 	size_t size = 0;
 	stack_t *stack = NULL;
-	unsigned int line = 1;
+	unsigned int line = 0;
 
 	if (argc != 2)
 	{
@@ -30,10 +30,10 @@ int main(int argc, char *argv[])
 	glob.buffer = NULL;
 	while (getline(&glob.buffer, &size, glob.fd) != -1)
 	{
+		line++;
 		if (glob.buffer[0] == '#')
 			continue;
 		command(glob.buffer, &stack, line);
-		line++;
 	}
 
 	fclose(glob.fd);
