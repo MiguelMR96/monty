@@ -30,9 +30,12 @@ int main(int argc, char *argv[])
 	glob.buffer = NULL;
 	while (getline(&glob.buffer, &size, glob.fd) != -1)
 	{
+		if (glob.buffer[0] == '#')
+			continue;
 		command(glob.buffer, &stack, line);
 		line++;
 	}
+
 	fclose(glob.fd);
 	free(glob.buffer);
 	free_stack(stack);
