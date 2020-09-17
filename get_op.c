@@ -12,7 +12,7 @@ int get_op(char *op_code, stack_t **stack, unsigned int line)
 		{"pall", op_pall},
 		{"pint", op_pint},
 		{"pop", op_pop},
-		/*{"swap", op_swap},*/
+		{"swap", op_swap},
 		{"add", op_add},
 		{"nop", op_nop},
 		{"sub", op_sub},
