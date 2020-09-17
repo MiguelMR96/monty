@@ -1,6 +1,7 @@
 #include "monty.h"
 /**
- * op_rotl - computes the rest of the division of the second top element of the stack by the top element of the stack.
+ * op_rotl - computes the rest of the division of the second top element of the
+ * stack by the top element of the stack.
  * @stack: pointer to stack
  * @line: line number
  * Return: void
@@ -30,5 +31,4 @@ void op_rotl(stack_t **stack, unsigned int line)
 		cur = (*stack);/*nodo prev al actual y actual a stack*/
 	}
 	(*stack) = prev;/*se hace stack el último nodo*/
-
 }

@@ -35,6 +35,5 @@ int main(int argc, char *argv[])
 	}
 	fclose(fd);
 	free_stack(stack);
-
 	return (0);
 }

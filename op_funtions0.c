@@ -6,11 +6,25 @@
  * @line: number of line
  * Return: int
  */
-stack_t *op_push(stack_t **stack, int n, unsigned int line)
+stack_t *op_push(stack_t **stack, char *token, unsigned int line)
 {
 	stack_t *new_node;
+	int n, i;
 	(void)line;
 
+	i = 0;
+	if (token[0] == '-')
+		i = 1;
+	while (token[i])
+	{
+		if (token[i] < '0' || token[i] > '9')
+		{
+			printf("L%d: usage: push integer\n", line);
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	n = atoi(token);
 	new_node = malloc(sizeof(stack_t));
 	if (new_node == NULL)
 	{
