@@ -12,12 +12,13 @@ int command(char *buffer, stack_t **stack, unsigned int line)
 	char *token, *token_array[100], *del = " \n\t";
 	int i = 0;
 	stack_t *aux;
-	(void)aux;
 
+	(void)aux;
 	token = strtok(buffer, del);
 	if (token == NULL)
 		return (EXIT_SUCCESS);
-	if (buffer[0] == '#')
+
+	if (token[0] == '#')
 		return (EXIT_SUCCESS);
 	while (i < 2)
 	{
