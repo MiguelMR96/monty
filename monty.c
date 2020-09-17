@@ -24,7 +24,6 @@ int main(int argc, char *argv[])
 	{
 		dprintf(2, "Error: Can't open file %s\n", argv[1]);
 		free_stack(stack);
-		fclose(glob.fd);
 		exit(EXIT_FAILURE);
 	}
 	/*Sec: we read the file*/
