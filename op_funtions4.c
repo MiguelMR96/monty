@@ -7,9 +7,9 @@
  */
 void op_add(stack_t **stack, unsigned int line)
 {
-	int num_nodes = 0, add =0;
+	int num_nodes = 0, add = 0;
 	stack_t *aux;
-	
+
 	aux = *stack;
 	while (aux != NULL)
 	{

@@ -1,15 +1,16 @@
 #include "monty.h"
 /**
- * op_div  - divides the second top element of the stack by the top element of the stack.
+ * op_div  - divides the second top element of the stack by the top element of
+ * the stack.
  * @stack: pointer to stack
  * @line: line number
  * Return: void
  */
 void op_div(stack_t **stack, unsigned int line)
 {
-	int num_nodes = 0, div =0;
+	int num_nodes = 0, div = 0;
 	stack_t *aux;
-	
+
 	aux = *stack;
 	while (aux != NULL)
 	{
