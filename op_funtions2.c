@@ -8,11 +8,10 @@
 void op_pop(stack_t **stack, unsigned int line)
 {
 	stack_t *aux;
-	(void)line;
 	/*if there is not list or if the content is NULL*/
 	if (stack == NULL || *stack == NULL)
 	{
-		printf("L%d: can't pop an empty stack\n", line);
+		dprintf(2, "L%d: can't pop an empty stack\n", line);
 		exit(EXIT_FAILURE);
 	}
 	aux = *stack;

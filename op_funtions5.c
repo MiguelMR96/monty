@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * op_nop - swaps the top two elements of the stack.
+ * op_nop - doesnt do anything
  * @stack: pointer to stack
  * @line: line number
  * Return: void

@@ -19,11 +19,10 @@ void op_add(stack_t **stack, unsigned int line)
 
 	if (num_nodes < 2)
 	{
-		printf("L%d: can't add, stack too short\n", line);
+		dprintf(2, "L%d: can't add, stack too short\n", line);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-
 	add = (*stack)->n + (*stack)->next->n;/*sumo stack y stakk next data*/
 	(*stack) = (*stack)->next;/*stack ya será stack next para poder liberarlo*/
 	free((*stack)->prev);/*libero stack*/
