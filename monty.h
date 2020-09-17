@@ -33,12 +33,19 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
+/**
+ * struct globales_s - Global varaibles
+ * @fd: file descriptor
+ * @buffer: getline´s buffer
+ *
+ * Description: global variables
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
 typedef struct globales_s
 {
 	FILE *fd;
 	char *buffer;
-}glob_t;
+} glob_t;
 
 extern glob_t glob;
 glob_t glob;

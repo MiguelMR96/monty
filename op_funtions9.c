@@ -26,7 +26,7 @@ void op_mod(stack_t **stack, unsigned int line)
 		free(glob.buffer);
 		exit(EXIT_FAILURE);
 	}
-	if((*stack)->n == 0)
+	if ((*stack)->n == 0)
 	{
 		dprintf(2, "L%d: division by zero\n", line);
 		free_stack(*stack);
