@@ -13,11 +13,9 @@ void op_pstr(stack_t **stack, unsigned int line)
 	while (aux)
 	{
 		if (aux->n <= 0 || aux->n > 127)
-		{
-			printf("\n");
 			break;
-		}
 		printf("%c", aux->n);
 		aux = aux->next;
 	}
+	printf("\n");
 }
