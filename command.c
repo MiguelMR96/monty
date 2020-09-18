@@ -39,8 +39,6 @@ int command(char *buffer, stack_t **stack, unsigned int line)
 		}
 		aux = op_push(stack, token_array[1], line);
 	}
-	else if (strcmp(token_array[0], "pchar") == 0)
-		op_pchar(stack, line);
 	else
 		get_op(token_array[0], stack, line);
 	return (EXIT_SUCCESS);
